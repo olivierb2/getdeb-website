@@ -1,0 +1,228 @@
+{
+  "en": {
+    "translation": {
+      "meta": {
+        "title": "deb-dl.org - Easy Debian Downloads",
+        "description": "The easiest way to download Debian ISOs - Netinstall, Live, Non-free firmware editions"
+      },
+      "hero": {
+        "title": "Download Debian the Easy Way",
+        "subtitle": "No more confusion. Get your Debian ISO in seconds.",
+        "cta": "Download Netinstall ISO",
+        "recommended": "(Recommended for most users)",
+        "scrollHint": "👇 Scroll down to see all available downloads"
+      },
+      "netinstall": {
+        "title": "Netinstall Images",
+        "description": "Minimal installation images. Downloads packages from the internet during installation.",
+        "amd64Desc": "For 64-bit PCs (Intel/AMD)",
+        "arm64Desc": "For ARM 64-bit devices",
+        "i386Desc": "For 32-bit PCs (older hardware)"
+      },
+      "nonfree": {
+        "title": "Non-free Firmware Images",
+        "description": "Includes proprietary firmware for better hardware compatibility (WiFi, GPU, etc.)",
+        "amd64Desc": "64-bit PC with firmware",
+        "arm64Desc": "ARM 64-bit with firmware"
+      },
+      "live": {
+        "title": "Live Images",
+        "description": "Try Debian without installing. Boot from USB and test it first!",
+        "gnomeDesc": "Modern desktop environment",
+        "kdeDesc": "Feature-rich desktop",
+        "xfceDesc": "Lightweight & fast",
+        "lxdeDesc": "Ultra-lightweight desktop",
+        "mateDesc": "Traditional desktop",
+        "cinnamonDesc": "Modern & elegant"
+      },
+      "netboot": {
+        "title": "Network Boot Images",
+        "description": "Boot and install Debian over the network (PXE). Browse the directory to find netboot.tar.gz and related files.",
+        "amd64Desc": "AMD64 netboot files",
+        "arm64Desc": "ARM64 netboot files"
+      },
+      "liveNonfree": {
+        "title": "Live Images + Non-free Firmware",
+        "description": "Live images with proprietary drivers for better hardware support",
+        "gnomeDesc": "Best compatibility for laptops",
+        "kdeDesc": "Full-featured with drivers"
+      },
+      "daily": {
+        "title": "Daily Builds & Testing",
+        "description": "Latest development builds. Use at your own risk!",
+        "testingTitle": "Testing",
+        "weekly": "Weekly",
+        "daily": "Daily",
+        "weeklyDesc": "Weekly testing builds",
+        "dailyDesc": "Daily testing builds"
+      },
+      "common": {
+        "download": "Download",
+        "checksum": "Checksum",
+        "browse": "Browse",
+        "recommended": "Recommended for beginners"
+      },
+      "footer": {
+        "disclaimer": "This is an unofficial mirror site. Official downloads at",
+        "verification": "Always verify checksums before installation!"
+      },
+      "help": {
+        "button": "Help Me!"
+      },
+      "assistant": {
+        "next": "Next Step →",
+        "previous": "← Previous",
+        "finish": "Finish",
+        "step1": {
+          "title": "Step 1: Choose Your ISO",
+          "description": "For beginners, we recommend the Debian Live GNOME with non-free firmware. It includes all necessary drivers for laptops and modern hardware.",
+          "feature1": "✓ Try before installing",
+          "feature2": "✓ WiFi drivers included",
+          "feature3": "✓ User-friendly interface",
+          "feature4": "✓ Works on most laptops"
+        },
+        "step2": {
+          "title": "Step 2: Create Bootable USB with Rufus",
+          "description": "Rufus is a free tool to create a bootable USB drive from your ISO file.",
+          "download": "Download Rufus",
+          "downloadDesc": "Get it from the official website",
+          "insert": "Insert USB Drive",
+          "insertDesc": "At least 4GB. All data will be erased!",
+          "launch": "Launch Rufus",
+          "selectDevice": "Select your USB device",
+          "selectISO": "Click SELECT and choose your Debian ISO",
+          "clickStart": "Click START",
+          "ddMode": "Choose DD Image Mode",
+          "ddModeDesc": "When asked, select \"Write in DD Image mode\" for Debian",
+          "wait": "Wait for completion",
+          "waitDesc": "It may take 5-15 minutes depending on your USB speed"
+        },
+        "step3": {
+          "title": "Step 3: Boot from USB",
+          "description": "Now you need to tell your computer to start from the USB drive instead of your hard disk.",
+          "restart": "Restart your computer",
+          "restartDesc": "Keep the USB drive plugged in",
+          "bootKey": "Press the boot menu key",
+          "bootKeyDesc": "Press repeatedly during startup:",
+          "selectUSB": "Select USB Drive",
+          "selectUSBDesc": "Choose your USB drive from the boot menu (might be labeled as \"USB-HDD\", \"UEFI\", or by brand name)",
+          "enjoy": "🎉 Enjoy Debian!",
+          "enjoyDesc": "Debian should now boot. You can try it live or proceed with installation."
+        }
+      }
+    }
+  },
+  "fr": {
+    "translation": {
+      "meta": {
+        "title": "deb-dl.org - Téléchargements Debian Faciles",
+        "description": "La façon la plus simple de télécharger des ISOs Debian - Netinstall, Live, éditions avec firmware non-libre"
+      },
+      "hero": {
+        "title": "Téléchargez Debian Facilement",
+        "subtitle": "Fini la confusion. Obtenez votre ISO Debian en quelques secondes.",
+        "cta": "Télécharger l'ISO Netinstall",
+        "recommended": "(Recommandé pour la plupart des utilisateurs)",
+        "scrollHint": "👇 Faites défiler pour voir tous les téléchargements disponibles"
+      },
+      "netinstall": {
+        "title": "Images Netinstall",
+        "description": "Images d'installation minimales. Télécharge les paquets depuis Internet pendant l'installation.",
+        "amd64Desc": "Pour PC 64 bits (Intel/AMD)",
+        "arm64Desc": "Pour appareils ARM 64 bits",
+        "i386Desc": "Pour PC 32 bits (matériel ancien)"
+      },
+      "nonfree": {
+        "title": "Images avec Firmware Non-libre",
+        "description": "Inclut les firmwares propriétaires pour une meilleure compatibilité matérielle (WiFi, GPU, etc.)",
+        "amd64Desc": "PC 64 bits avec firmware",
+        "arm64Desc": "ARM 64 bits avec firmware"
+      },
+      "live": {
+        "title": "Images Live",
+        "description": "Essayez Debian sans l'installer. Démarrez depuis USB et testez d'abord !",
+        "gnomeDesc": "Environnement de bureau moderne",
+        "kdeDesc": "Bureau riche en fonctionnalités",
+        "xfceDesc": "Léger et rapide",
+        "lxdeDesc": "Bureau ultra-léger",
+        "mateDesc": "Bureau traditionnel",
+        "cinnamonDesc": "Moderne et élégant"
+      },
+      "netboot": {
+        "title": "Images de Démarrage Réseau",
+        "description": "Démarrez et installez Debian via le réseau (PXE). Parcourez le répertoire pour trouver netboot.tar.gz et fichiers associés.",
+        "amd64Desc": "Fichiers netboot AMD64",
+        "arm64Desc": "Fichiers netboot ARM64"
+      },
+      "liveNonfree": {
+        "title": "Images Live + Firmware Non-libre",
+        "description": "Images live avec pilotes propriétaires pour un meilleur support matériel",
+        "gnomeDesc": "Meilleure compatibilité pour portables",
+        "kdeDesc": "Complet avec pilotes"
+      },
+      "daily": {
+        "title": "Compilations Quotidiennes & Testing",
+        "description": "Dernières versions de développement. À utiliser à vos risques !",
+        "testingTitle": "Testing",
+        "weekly": "Hebdomadaire",
+        "daily": "Quotidien",
+        "weeklyDesc": "Compilations testing hebdomadaires",
+        "dailyDesc": "Compilations testing quotidiennes"
+      },
+      "common": {
+        "download": "Télécharger",
+        "checksum": "Somme de contrôle",
+        "browse": "Parcourir",
+        "recommended": "Recommandé pour débutants"
+      },
+      "footer": {
+        "disclaimer": "Ceci est un site miroir non officiel. Téléchargements officiels sur",
+        "verification": "Vérifiez toujours les sommes de contrôle avant l'installation !"
+      },
+      "help": {
+        "button": "Aidez-moi !"
+      },
+      "assistant": {
+        "next": "Étape suivante →",
+        "previous": "← Précédent",
+        "finish": "Terminer",
+        "step1": {
+          "title": "Étape 1 : Choisissez votre ISO",
+          "description": "Pour les débutants, nous recommandons Debian Live GNOME avec firmware non-libre. Il inclut tous les pilotes nécessaires pour les portables et le matériel moderne.",
+          "feature1": "✓ Essayer avant d'installer",
+          "feature2": "✓ Pilotes WiFi inclus",
+          "feature3": "✓ Interface conviviale",
+          "feature4": "✓ Fonctionne sur la plupart des portables"
+        },
+        "step2": {
+          "title": "Étape 2 : Créer une Clé USB Bootable avec Rufus",
+          "description": "Rufus est un outil gratuit pour créer une clé USB bootable depuis votre fichier ISO.",
+          "download": "Télécharger Rufus",
+          "downloadDesc": "Obtenez-le depuis le site officiel",
+          "insert": "Insérer la Clé USB",
+          "insertDesc": "Au moins 4 Go. Toutes les données seront effacées !",
+          "launch": "Lancer Rufus",
+          "selectDevice": "Sélectionnez votre périphérique USB",
+          "selectISO": "Cliquez sur SÉLECTIONNER et choisissez votre ISO Debian",
+          "clickStart": "Cliquez sur DÉMARRER",
+          "ddMode": "Choisir le Mode Image DD",
+          "ddModeDesc": "Lorsqu'on vous le demande, sélectionnez \"Écrire en mode Image DD\" pour Debian",
+          "wait": "Attendre la fin",
+          "waitDesc": "Cela peut prendre 5 à 15 minutes selon la vitesse de votre USB"
+        },
+        "step3": {
+          "title": "Étape 3 : Démarrer depuis l'USB",
+          "description": "Maintenant vous devez indiquer à votre ordinateur de démarrer depuis la clé USB au lieu du disque dur.",
+          "restart": "Redémarrer votre ordinateur",
+          "restartDesc": "Gardez la clé USB branchée",
+          "bootKey": "Appuyer sur la touche du menu de démarrage",
+          "bootKeyDesc": "Appuyez plusieurs fois au démarrage :",
+          "selectUSB": "Sélectionner la Clé USB",
+          "selectUSBDesc": "Choisissez votre clé USB dans le menu de démarrage (peut être étiqueté \"USB-HDD\", \"UEFI\", ou par le nom de marque)",
+          "enjoy": "🎉 Profitez de Debian !",
+          "enjoyDesc": "Debian devrait maintenant démarrer. Vous pouvez l'essayer en live ou procéder à l'installation."
+        }
+      }
+    }
+  }
+}

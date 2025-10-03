@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "version": "13.1.0",
+    "testingCodename": "Edu",
+    "lastUpdated": "2025-10-03T13:28:11.885878+00:00",
+    "generator": "parse_debian_links.py",
+    "notice": "Since Debian 12, firmware is included by default in standard ISOs"
+  },
+  "netinstall": {
+    "amd64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.1.0-amd64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.1.0-amd64-netinst.iso"
+    },
+    "arm64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.1.0-arm64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.1.0-arm64-netinst.iso"
+    }
+  },
+  "live": {
+    "gnome": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.1.0-amd64-gnome.iso",
+      "filename": "debian-live-13.1.0-amd64-gnome.iso"
+    },
+    "kde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.1.0-amd64-kde.iso",
+      "filename": "debian-live-13.1.0-amd64-kde.iso"
+    },
+    "xfce": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.1.0-amd64-xfce.iso",
+      "filename": "debian-live-13.1.0-amd64-xfce.iso"
+    },
+    "lxde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.1.0-amd64-lxde.iso",
+      "filename": "debian-live-13.1.0-amd64-lxde.iso"
+    },
+    "mate": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.1.0-amd64-mate.iso",
+      "filename": "debian-live-13.1.0-amd64-mate.iso"
+    },
+    "cinnamon": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.1.0-amd64-cinnamon.iso",
+      "filename": "debian-live-13.1.0-amd64-cinnamon.iso"
+    }
+  },
+  "netboot": {
+    "amd64": "https://ftp.debian.org/debian/dists/stable/main/installer-amd64/current/images/netboot/",
+    "arm64": "https://ftp.debian.org/debian/dists/stable/main/installer-arm64/current/images/netboot/"
+  },
+  "daily": {
+    "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
+    "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
+    "testingCodename": "Edu"
+  }
+}

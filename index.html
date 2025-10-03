@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">deb-dl.org - Easy Debian Downloads</title>
+    <meta name="description" data-i18n="meta.description" content="The easiest way to download Debian ISOs - Netinstall, Live, Non-free firmware editions">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.6/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.4.2/i18nextHttpBackend.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">deb-dl.org</h1>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title" data-i18n="hero.title">Download Debian the Easy Way</h2>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">No more confusion. Get your Debian ISO in seconds.</p>
+
+            <div class="hero-cta">
+                <a href="#" id="hero-download-btn" class="btn btn-hero btn-large">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <div>
+                        <span data-i18n="hero.cta">Download Netinstall ISO</span>
+                        <small data-i18n="hero.recommended">(Recommended for most users)</small>
+                    </div>
+                </a>
+            </div>
+
+            <div class="scroll-hint">
+                <p data-i18n="hero.scrollHint">👇 Scroll down to see all available downloads</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Netinstall Section -->
+    <section id="netinstall" class="download-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="netinstall.title">Netinstall Images</h2>
+            <p class="section-description" data-i18n="netinstall.description">Minimal installation images. Downloads packages from the internet during installation.</p>
+
+            <div class="download-grid" id="netinstall-grid">
+                <!-- Generated dynamically from debian-links.json -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Live ISOs Section -->
+    <section id="live" class="download-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="live.title">Live Images</h2>
+            <p class="section-description" data-i18n="live.description">Try Debian without installing. Boot from USB and test it first! Includes firmware by default.</p>
+
+            <div class="download-grid" id="live-grid">
+                <!-- Generated dynamically from debian-links.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Boot Section -->
+    <section id="netboot" class="download-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="netboot.title">Network Boot Images</h2>
+            <p class="section-description" data-i18n="netboot.description">Boot and install Debian over the network (PXE). Browse the directory to find netboot.tar.gz and related files.</p>
+
+            <div class="download-grid" id="netboot-grid">
+                <!-- Generated dynamically from debian-links.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Builds Section -->
+    <section id="daily" class="download-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="daily.title">Daily Builds & Testing</h2>
+            <p class="section-description" data-i18n="daily.description">Latest development builds. Use at your own risk!</p>
+
+            <div class="download-grid" id="daily-grid">
+                <!-- Generated dynamically from debian-links.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer.disclaimer">This is an unofficial mirror site. Official downloads at <a href="https://www.debian.org/distrib/" target="_blank">debian.org</a></p>
+            <p data-i18n="footer.verification">Always verify checksums before installation!</p>
+        </div>
+    </footer>
+
+    <!-- Help Me Button -->
+    <button class="help-btn" id="helpBtn">
+        <span data-i18n="help.button">Help Me!</span>
+    </button>
+
+    <!-- Assistant Modal -->
+    <div class="modal" id="assistantModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+
+            <div class="assistant-step" data-step="1">
+                <h2 data-i18n="assistant.step1.title">Step 1: Choose Your ISO</h2>
+                <p data-i18n="assistant.step1.description">For beginners, we recommend the Debian Live GNOME with non-free firmware. It includes all necessary drivers for laptops and modern hardware.</p>
+                <div class="assistant-card">
+                    <h3>Debian Live GNOME</h3>
+                    <ul>
+                        <li data-i18n="assistant.step1.feature1">✓ Try before installing</li>
+                        <li data-i18n="assistant.step1.feature2">✓ WiFi drivers included</li>
+                        <li data-i18n="assistant.step1.feature3">✓ User-friendly interface</li>
+                        <li data-i18n="assistant.step1.feature4">✓ Works on most laptops</li>
+                    </ul>
+                    <a href="#" id="assistant-download-link" class="btn btn-primary" data-i18n="common.download">Download</a>
+                </div>
+                <button class="btn btn-secondary step-next" data-i18n="assistant.next">Next Step →</button>
+            </div>
+
+            <div class="assistant-step hidden" data-step="2">
+                <h2 data-i18n="assistant.step2.title">Step 2: Create Bootable USB with Rufus</h2>
+                <p data-i18n="assistant.step2.description">Rufus is a free tool to create a bootable USB drive from your ISO file.</p>
+
+                <div class="assistant-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step2.download">Download Rufus</h4>
+                            <p data-i18n="assistant.step2.downloadDesc">Get it from the official website</p>
+                            <a href="https://rufus.ie/" target="_blank" class="btn btn-small">rufus.ie</a>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step2.insert">Insert USB Drive</h4>
+                            <p data-i18n="assistant.step2.insertDesc">At least 4GB. All data will be erased!</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step2.launch">Launch Rufus</h4>
+                            <img src="images/rufus-main.png" alt="Rufus main window" class="step-image">
+                            <ul>
+                                <li data-i18n="assistant.step2.selectDevice">Select your USB device</li>
+                                <li data-i18n="assistant.step2.selectISO">Click SELECT and choose your Debian ISO</li>
+                                <li data-i18n="assistant.step2.clickStart">Click START</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step2.ddMode">Choose DD Image Mode</h4>
+                            <img src="images/rufus-dd-mode.png" alt="Rufus DD mode selection" class="step-image">
+                            <p data-i18n="assistant.step2.ddModeDesc">When asked, select "Write in DD Image mode" for Debian</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step2.wait">Wait for completion</h4>
+                            <p data-i18n="assistant.step2.waitDesc">It may take 5-15 minutes depending on your USB speed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assistant-nav">
+                    <button class="btn btn-outline step-prev" data-i18n="assistant.previous">← Previous</button>
+                    <button class="btn btn-secondary step-next" data-i18n="assistant.next">Next Step →</button>
+                </div>
+            </div>
+
+            <div class="assistant-step hidden" data-step="3">
+                <h2 data-i18n="assistant.step3.title">Step 3: Boot from USB</h2>
+                <p data-i18n="assistant.step3.description">Now you need to tell your computer to start from the USB drive instead of your hard disk.</p>
+
+                <div class="assistant-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step3.restart">Restart your computer</h4>
+                            <p data-i18n="assistant.step3.restartDesc">Keep the USB drive plugged in</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step3.bootKey">Press the boot menu key</h4>
+                            <p data-i18n="assistant.step3.bootKeyDesc">Press repeatedly during startup:</p>
+                            <div class="key-grid">
+                                <div class="key-item">
+                                    <strong>Dell, HP, Lenovo</strong><br>
+                                    <kbd>F12</kbd>
+                                </div>
+                                <div class="key-item">
+                                    <strong>Asus, Acer</strong><br>
+                                    <kbd>F8</kbd> or <kbd>F12</kbd>
+                                </div>
+                                <div class="key-item">
+                                    <strong>MSI</strong><br>
+                                    <kbd>F11</kbd>
+                                </div>
+                                <div class="key-item">
+                                    <strong>Apple Mac</strong><br>
+                                    <kbd>Option</kbd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step3.selectUSB">Select USB Drive</h4>
+                            <p data-i18n="assistant.step3.selectUSBDesc">Choose your USB drive from the boot menu (might be labeled as "USB-HDD", "UEFI", or by brand name)</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4 data-i18n="assistant.step3.enjoy">🎉 Enjoy Debian!</h4>
+                            <p data-i18n="assistant.step3.enjoyDesc">Debian should now boot. You can try it live or proceed with installation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assistant-nav">
+                    <button class="btn btn-outline step-prev" data-i18n="assistant.previous">← Previous</button>
+                    <button class="btn btn-primary" id="finishBtn" data-i18n="assistant.finish">Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

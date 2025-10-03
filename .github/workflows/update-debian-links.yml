@@ -1,0 +1,54 @@
+name: Update Debian Links
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run Debian links parser
+        run: python3 parse_debian_links.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet debian-links.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add debian-links.json
+          git commit -m "chore: update Debian ISO links (automated)"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create summary
+        run: |
+          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+            echo "✅ Debian links were updated" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ No changes detected in Debian links" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "### Latest Debian Version" >> $GITHUB_STEP_SUMMARY
+          cat debian-links.json | grep '"version"' | head -1 >> $GITHUB_STEP_SUMMARY
