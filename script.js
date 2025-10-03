@@ -25,24 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize i18next
-    i18next
-        .use(i18nextHttpBackend)
-        .init({
-            lng: localStorage.getItem('language') || 'en',
-            fallbackLng: 'en',
-            debug: false,
-            backend: {
-                loadPath: '/translations.json',
-                parse: function(data) {
-                    const json = JSON.parse(data);
-                    return json[i18next.language].translation;
+    // Load translations manually first
+    let translations = {};
+    fetch('/translations.json')
+        .then(response => response.json())
+        .then(data => {
+            translations = data;
+
+            // Initialize i18next without backend
+            i18next.init({
+                lng: localStorage.getItem('language') || 'en',
+                fallbackLng: 'en',
+                debug: false,
+                resources: {
+                    en: translations.en,
+                    fr: translations.fr
                 }
-            }
-        }, function(err, t) {
-            if (err) return console.error('i18next init error:', err);
-            updateContent();
-            highlightActiveLanguage();
+            }, function(err, t) {
+                if (err) return console.error('i18next init error:', err);
+                updateContent();
+                highlightActiveLanguage();
+            });
+        })
+        .catch(error => {
+            console.error('Error loading translations:', error);
         });
 
     // Language switcher
@@ -60,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
             updateContent();
             highlightActiveLanguage();
             localStorage.setItem('language', lang);
+            // Re-populate download links to update dynamically generated content
+            if (debianLinks) {
+                populateDownloadLinks();
+            }
         });
     }
 
