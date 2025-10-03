@@ -86,9 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentLang = i18next.language;
         langButtons.forEach(btn => {
             if (btn.getAttribute('data-lang') === currentLang) {
-                btn.classList.add('active');
+                btn.classList.add('bg-debian-red', 'border-debian-red', 'text-white');
+                btn.classList.remove('border-gray-200', 'hover:border-debian-red', 'hover:text-debian-red');
             } else {
-                btn.classList.remove('active');
+                btn.classList.remove('bg-debian-red', 'border-debian-red', 'text-white');
+                btn.classList.add('border-gray-200', 'hover:border-debian-red', 'hover:text-debian-red');
             }
         });
     }
@@ -103,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Open modal
     helpBtn.addEventListener('click', function() {
-        modal.classList.add('active');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
         showStep(1);
     });
@@ -121,13 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
             closeModal();
         }
     });
 
     function closeModal() {
-        modal.classList.remove('active');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
         document.body.style.overflow = '';
         currentStep = 1;
     }
@@ -230,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== Download Icon SVG =====
-const downloadIconSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+const downloadIconSVG = '<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
 
 // ===== Populate Download Links from JSON =====
 function populateDownloadLinks() {
@@ -243,14 +247,18 @@ function populateDownloadLinks() {
 
         if (link) {
             netinstallCard.innerHTML = `
-                <h3>Netinstall ${currentArch.toUpperCase()}</h3>
-                <p class="card-arch">Minimal installation image</p>
-                <p class="card-size">~350 MB</p>
-                <a href="${link.url}" class="btn btn-hero btn-large">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
-                <a href="${link.checksum}" class="link-checksum" data-i18n="common.checksum">Checksum</a>
+                <h3 class="text-3xl font-bold text-debian-red mb-3">Netinstall ${currentArch.toUpperCase()}</h3>
+                <p class="text-gray-500 mb-2">Minimal installation image</p>
+                <p class="text-xl font-semibold text-debian-red mb-6">~350 MB</p>
+                <a href="${link.url}" class="inline-flex items-center gap-2 bg-debian-red text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-debian-dark transition-all hover:scale-105 mb-3">
+                    ${downloadIconSVG}
+                    <span data-i18n="common.download">Download</span>
+                </a>
+                <br>
+                <a href="${link.checksum}" class="inline-block text-gray-500 text-sm hover:text-debian-red hover:underline transition-colors" data-i18n="common.checksum">Checksum</a>
             `;
         } else {
-            netinstallCard.innerHTML = '<p style="color:#6c757d;">No netinstall image available for this architecture.</p>';
+            netinstallCard.innerHTML = '<p class="text-gray-500">No netinstall image available for this architecture.</p>';
         }
     }
 
@@ -263,9 +271,9 @@ function populateDownloadLinks() {
         if (currentArch !== 'amd64') {
             const archName = currentArch.toUpperCase();
             liveGrid.innerHTML = `
-                <div class="download-card" style="grid-column: 1 / -1;">
-                    <h3>Live Images Not Available</h3>
-                    <p class="card-arch" style="margin-bottom: 0;">
+                <div class="col-span-full bg-white border-2 border-gray-200 rounded-xl p-8 text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Live Images Not Available</h3>
+                    <p class="text-gray-600">
                         Live images are only available for AMD64 architecture.<br>
                         For <strong>${archName}</strong>, please use the Netinstall image above.
                     </p>
@@ -287,19 +295,24 @@ function populateDownloadLinks() {
                 if (!info) continue;
 
                 const card = document.createElement('div');
-                card.className = info.featured ? 'download-card featured' : 'download-card';
+                card.className = info.featured
+                    ? 'relative bg-white border-2 border-debian-red rounded-xl p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1'
+                    : 'relative bg-white border-2 border-gray-200 rounded-xl p-8 text-center hover:border-debian-red hover:shadow-xl transition-all hover:-translate-y-1';
 
                 let badgeHtml = '';
                 if (info.featured) {
-                    badgeHtml = '<div class="badge" data-i18n="common.recommended">Recommended for beginners</div>';
+                    badgeHtml = '<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-debian-red text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap" data-i18n="common.recommended">Recommended for beginners</div>';
                 }
 
                 card.innerHTML = `
                     ${badgeHtml}
-                    <h3>${info.title} (Live)</h3>
-                    <p class="card-arch" data-i18n="${info.desc}">${info.i18nDesc}</p>
-                    <p class="card-size">~2.5-3.5 GB</p>
-                    <a href="${link.url}" class="btn ${info.featured ? 'btn-primary' : 'btn-secondary'}">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">${info.title} (Live)</h3>
+                    <p class="text-gray-600 mb-2" data-i18n="${info.desc}">${info.i18nDesc}</p>
+                    <p class="text-lg font-semibold text-debian-red mb-6">~2.5-3.5 GB</p>
+                    <a href="${link.url}" class="inline-flex items-center gap-2 ${info.featured ? 'bg-debian-red hover:bg-debian-dark' : 'bg-gray-800 hover:bg-gray-700'} text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors w-full justify-center">
+                        ${downloadIconSVG}
+                        <span data-i18n="common.download">Download</span>
+                    </a>
                 `;
                 liveGrid.appendChild(card);
             }
@@ -313,12 +326,12 @@ function populateDownloadLinks() {
         const url = debianLinks.netboot[currentArch];
 
         const card = document.createElement('div');
-        card.className = 'download-card';
+        card.className = 'bg-white border-2 border-gray-200 rounded-xl p-8 text-center hover:border-debian-red hover:shadow-xl transition-all hover:-translate-y-1';
         card.innerHTML = `
-            <h3>Netboot ${currentArch.toUpperCase()}</h3>
-            <p class="card-arch">PXE network boot files</p>
-            <p class="card-size">Browse for files</p>
-            <a href="${url}" class="btn btn-secondary" data-i18n="common.browse">Browse</a>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Netboot ${currentArch.toUpperCase()}</h3>
+            <p class="text-gray-600 mb-2">PXE network boot files</p>
+            <p class="text-lg font-semibold text-debian-red mb-6">Browse for files</p>
+            <a href="${url}" class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full justify-center" data-i18n="common.browse">Browse</a>
         `;
         netbootGrid.appendChild(card);
     }
@@ -327,18 +340,18 @@ function populateDownloadLinks() {
     const dailyGrid = document.getElementById('daily-grid');
     if (dailyGrid && debianLinks.daily) {
         dailyGrid.innerHTML = `
-            <div class="download-card testing-card">
-                <div class="testing-toggle">
-                    <button class="toggle-btn active" data-testing="weekly">
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-8 text-center">
+                <div class="flex gap-2 mb-6 bg-gray-100 p-1 rounded-lg justify-center">
+                    <button class="toggle-btn flex-1 px-6 py-2 rounded-lg font-semibold text-sm transition-all bg-debian-red text-white" data-testing="weekly">
                         <span data-i18n="daily.weekly">Weekly</span>
                     </button>
-                    <button class="toggle-btn" data-testing="daily">
+                    <button class="toggle-btn flex-1 px-6 py-2 rounded-lg font-semibold text-sm transition-all hover:bg-debian-red/10" data-testing="daily">
                         <span data-i18n="daily.daily">Daily</span>
                     </button>
                 </div>
-                <h3 id="testing-title" data-i18n="daily.testingTitle">Testing</h3>
-                <p class="card-arch" id="testing-desc" data-i18n="daily.weeklyDesc">Weekly testing builds</p>
-                <a href="${debianLinks.daily.testing}" id="testing-link" class="btn btn-secondary" data-i18n="common.browse">Browse</a>
+                <h3 id="testing-title" class="text-2xl font-bold text-gray-900 mb-3" data-i18n="daily.testingTitle">Testing</h3>
+                <p class="text-gray-600 mb-6" id="testing-desc" data-i18n="daily.weeklyDesc">Weekly testing builds</p>
+                <a href="${debianLinks.daily.testing}" id="testing-link" class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full justify-center" data-i18n="common.browse">Browse</a>
             </div>
         `;
 
@@ -353,8 +366,12 @@ function populateDownloadLinks() {
                 const mode = this.getAttribute('data-testing');
 
                 // Update active state
-                toggleButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+                toggleButtons.forEach(b => {
+                    b.classList.remove('bg-debian-red', 'text-white');
+                    b.classList.add('hover:bg-debian-red/10');
+                });
+                this.classList.add('bg-debian-red', 'text-white');
+                this.classList.remove('hover:bg-debian-red/10');
 
                 // Update content based on mode
                 if (mode === 'weekly') {

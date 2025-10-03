@@ -5,20 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="meta.title">deb-dl.org - Easy Debian Downloads</title>
     <meta name="description" data-i18n="meta.description" content="The easiest way to download Debian ISOs - Netinstall, Live, Non-free firmware editions">
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'debian-red': '#D70A53',
+                        'debian-dark': '#A80042',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- i18next -->
     <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.6/i18next.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.4.2/i18nextHttpBackend.min.js"></script>
+
+    <style>
+        @keyframes bounce-subtle {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .animate-bounce-subtle {
+            animation: bounce-subtle 2s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="logo">deb-dl.org</h1>
-                <div class="header-controls">
-                    <div class="arch-selector">
-                        <label for="arch-select" data-i18n="header.architecture">Architecture:</label>
-                        <select id="arch-select" class="arch-select-dropdown">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-bold text-debian-red tracking-tight">deb-dl.org</h1>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <label for="arch-select" class="text-sm font-semibold text-gray-700" data-i18n="header.architecture">Architecture:</label>
+                        <select id="arch-select" class="px-3 py-2 border-2 border-gray-200 rounded-lg bg-white font-semibold text-sm focus:outline-none focus:border-debian-red focus:ring-2 focus:ring-debian-red/20 transition-all">
                             <option value="amd64" data-i18n="arch.amd64">AMD64 (64-bit PC)</option>
                             <option value="arm64" data-i18n="arch.arm64">ARM64</option>
                             <option value="armhf" data-i18n="arch.armhf">ARMHF</option>
@@ -27,9 +61,9 @@
                             <option value="s390x" data-i18n="arch.s390x">S390X</option>
                         </select>
                     </div>
-                    <div class="lang-switcher">
-                        <button class="lang-btn" data-lang="en">EN</button>
-                        <button class="lang-btn" data-lang="fr">FR</button>
+                    <div class="flex gap-2">
+                        <button class="lang-btn px-4 py-2 border-2 border-gray-200 rounded-lg font-semibold text-sm transition-all hover:border-debian-red hover:text-debian-red" data-lang="en">EN</button>
+                        <button class="lang-btn px-4 py-2 border-2 border-gray-200 rounded-lg font-semibold text-sm transition-all hover:border-debian-red hover:text-debian-red" data-lang="fr">FR</button>
                     </div>
                 </div>
             </div>
@@ -37,210 +71,211 @@
     </header>
 
     <!-- Hero Section with Netinstall -->
-    <section id="netinstall" class="hero">
-        <div class="container">
-            <h2 class="hero-title" data-i18n="hero.title">Download Debian the Easy Way</h2>
-            <p class="hero-subtitle" data-i18n="netinstall.description">Minimal installation images. Downloads packages from the internet during installation.</p>
+    <section id="netinstall" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-debian-red to-debian-dark text-white px-4 py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight" data-i18n="hero.title">Download Debian the Easy Way</h2>
+            <p class="text-xl md:text-2xl mb-12 opacity-95 font-light" data-i18n="netinstall.description">Minimal installation images. Downloads packages from the internet during installation.</p>
 
-            <div class="hero-download-card" id="netinstall-card">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-xl mx-auto mb-16" id="netinstall-card">
                 <!-- Generated dynamically from debian-links.json -->
             </div>
 
-            <div class="scroll-hint">
+            <div class="animate-bounce-subtle text-lg opacity-90">
                 <p data-i18n="hero.scrollHint">👇 Scroll down to see all available downloads</p>
             </div>
         </div>
     </section>
 
-
     <!-- Live ISOs Section -->
-    <section id="live" class="download-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="live.title">Live Images</h2>
-            <p class="section-description" data-i18n="live.description">Try Debian without installing. Boot from USB and test it first! Includes firmware by default.</p>
+    <section id="live" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-i18n="live.title">Live Images</h2>
+            <p class="text-lg text-gray-600 mb-12 max-w-3xl" data-i18n="live.description">Try Debian without installing. Boot from USB and test it first! Includes firmware by default.</p>
 
-            <div class="download-grid" id="live-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="live-grid">
                 <!-- Generated dynamically from debian-links.json -->
             </div>
         </div>
     </section>
 
     <!-- Network Boot Section -->
-    <section id="netboot" class="download-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="netboot.title">Network Boot Images</h2>
-            <p class="section-description" data-i18n="netboot.description">Boot and install Debian over the network (PXE). Browse the directory to find netboot.tar.gz and related files.</p>
+    <section id="netboot" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-i18n="netboot.title">Network Boot Images</h2>
+            <p class="text-lg text-gray-600 mb-12 max-w-3xl" data-i18n="netboot.description">Boot and install Debian over the network (PXE). Browse the directory to find netboot.tar.gz and related files.</p>
 
-            <div class="download-grid" id="netboot-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="netboot-grid">
                 <!-- Generated dynamically from debian-links.json -->
             </div>
         </div>
     </section>
 
     <!-- Daily Builds Section -->
-    <section id="daily" class="download-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="daily.title">Daily Builds & Testing</h2>
-            <p class="section-description" data-i18n="daily.description">Latest development builds. Use at your own risk!</p>
+    <section id="daily" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-i18n="daily.title">Daily Builds & Testing</h2>
+            <p class="text-lg text-gray-600 mb-12 max-w-3xl" data-i18n="daily.description">Latest development builds. Use at your own risk!</p>
 
-            <div class="download-grid" id="daily-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="daily-grid">
                 <!-- Generated dynamically from debian-links.json -->
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p data-i18n="footer.disclaimer">This is an unofficial mirror site. Official downloads at <a href="https://www.debian.org/distrib/" target="_blank">debian.org</a></p>
-            <p data-i18n="footer.verification">Always verify checksums before installation!</p>
+    <footer class="bg-gray-800 text-white py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="mb-2 opacity-90" data-i18n="footer.disclaimer">This is an unofficial mirror site. Official downloads at <a href="https://www.debian.org/distrib/" target="_blank" class="underline hover:text-debian-red transition-colors">debian.org</a></p>
+            <p class="opacity-90" data-i18n="footer.verification">Always verify checksums before installation!</p>
         </div>
     </footer>
 
     <!-- Help Me Button -->
-    <button class="help-btn" id="helpBtn">
+    <button id="helpBtn" class="fixed bottom-8 right-8 bg-debian-red text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:bg-debian-dark hover:scale-105 transition-all z-40">
         <span data-i18n="help.button">Help Me!</span>
     </button>
 
     <!-- Assistant Modal -->
-    <div class="modal" id="assistantModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+    <div id="assistantModal" class="modal hidden fixed inset-0 bg-black/70 z-50 overflow-y-auto p-4">
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="bg-white rounded-2xl max-w-4xl w-full p-8 md:p-12 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+                <button id="modalClose" class="absolute top-6 right-6 text-gray-400 hover:text-debian-red text-4xl w-10 h-10 flex items-center justify-center transition-all hover:rotate-90">&times;</button>
 
-            <div class="assistant-step" data-step="1">
-                <h2 data-i18n="assistant.step1.title">Step 1: Choose Your ISO</h2>
-                <p data-i18n="assistant.step1.description">For beginners, we recommend the Debian Live GNOME with non-free firmware. It includes all necessary drivers for laptops and modern hardware.</p>
-                <div class="assistant-card">
-                    <h3>Debian Live GNOME</h3>
-                    <ul>
-                        <li data-i18n="assistant.step1.feature1">✓ Try before installing</li>
-                        <li data-i18n="assistant.step1.feature2">✓ WiFi drivers included</li>
-                        <li data-i18n="assistant.step1.feature3">✓ User-friendly interface</li>
-                        <li data-i18n="assistant.step1.feature4">✓ Works on most laptops</li>
-                    </ul>
-                    <a href="#" id="assistant-download-link" class="btn btn-primary" data-i18n="common.download">Download</a>
-                </div>
-                <button class="btn btn-secondary step-next" data-i18n="assistant.next">Next Step →</button>
-            </div>
-
-            <div class="assistant-step hidden" data-step="2">
-                <h2 data-i18n="assistant.step2.title">Step 2: Create Bootable USB with Rufus</h2>
-                <p data-i18n="assistant.step2.description">Rufus is a free tool to create a bootable USB drive from your ISO file.</p>
-
-                <div class="assistant-steps">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step2.download">Download Rufus</h4>
-                            <p data-i18n="assistant.step2.downloadDesc">Get it from the official website</p>
-                            <a href="https://rufus.ie/" target="_blank" class="btn btn-small">rufus.ie</a>
-                        </div>
+                <div class="assistant-step fade-in" data-step="1">
+                    <h2 class="text-3xl md:text-4xl font-bold text-debian-red mb-4" data-i18n="assistant.step1.title">Step 1: Choose Your ISO</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-i18n="assistant.step1.description">For beginners, we recommend the Debian Live GNOME with non-free firmware. It includes all necessary drivers for laptops and modern hardware.</p>
+                    <div class="bg-gradient-to-br from-debian-red to-debian-dark text-white p-8 rounded-xl mb-8">
+                        <h3 class="text-2xl font-bold mb-4">Debian Live GNOME</h3>
+                        <ul class="space-y-2 text-lg mb-6">
+                            <li data-i18n="assistant.step1.feature1">✓ Try before installing</li>
+                            <li data-i18n="assistant.step1.feature2">✓ WiFi drivers included</li>
+                            <li data-i18n="assistant.step1.feature3">✓ User-friendly interface</li>
+                            <li data-i18n="assistant.step1.feature4">✓ Works on most laptops</li>
+                        </ul>
+                        <a href="#" id="assistant-download-link" class="inline-block bg-white text-debian-red px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors" data-i18n="common.download">Download</a>
                     </div>
-
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step2.insert">Insert USB Drive</h4>
-                            <p data-i18n="assistant.step2.insertDesc">At least 4GB. All data will be erased!</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step2.launch">Launch Rufus</h4>
-                            <img src="images/rufus-main.png" alt="Rufus main window" class="step-image">
-                            <ul>
-                                <li data-i18n="assistant.step2.selectDevice">Select your USB device</li>
-                                <li data-i18n="assistant.step2.selectISO">Click SELECT and choose your Debian ISO</li>
-                                <li data-i18n="assistant.step2.clickStart">Click START</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step2.ddMode">Choose DD Image Mode</h4>
-                            <img src="images/rufus-dd-mode.png" alt="Rufus DD mode selection" class="step-image">
-                            <p data-i18n="assistant.step2.ddModeDesc">When asked, select "Write in DD Image mode" for Debian</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step2.wait">Wait for completion</h4>
-                            <p data-i18n="assistant.step2.waitDesc">It may take 5-15 minutes depending on your USB speed</p>
-                        </div>
-                    </div>
+                    <button class="step-next w-full bg-gray-800 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-gray-700 transition-colors" data-i18n="assistant.next">Next Step →</button>
                 </div>
 
-                <div class="assistant-nav">
-                    <button class="btn btn-outline step-prev" data-i18n="assistant.previous">← Previous</button>
-                    <button class="btn btn-secondary step-next" data-i18n="assistant.next">Next Step →</button>
-                </div>
-            </div>
+                <div class="assistant-step hidden" data-step="2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-debian-red mb-4" data-i18n="assistant.step2.title">Step 2: Create Bootable USB with Rufus</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-i18n="assistant.step2.description">Rufus is a free tool to create a bootable USB drive from your ISO file.</p>
 
-            <div class="assistant-step hidden" data-step="3">
-                <h2 data-i18n="assistant.step3.title">Step 3: Boot from USB</h2>
-                <p data-i18n="assistant.step3.description">Now you need to tell your computer to start from the USB drive instead of your hard disk.</p>
-
-                <div class="assistant-steps">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step3.restart">Restart your computer</h4>
-                            <p data-i18n="assistant.step3.restartDesc">Keep the USB drive plugged in</p>
+                    <div class="space-y-8 mb-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step2.download">Download Rufus</h4>
+                                <p class="text-gray-600 mb-3" data-i18n="assistant.step2.downloadDesc">Get it from the official website</p>
+                                <a href="https://rufus.ie/" target="_blank" class="inline-block bg-debian-red text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-debian-dark transition-colors">rufus.ie</a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step3.bootKey">Press the boot menu key</h4>
-                            <p data-i18n="assistant.step3.bootKeyDesc">Press repeatedly during startup:</p>
-                            <div class="key-grid">
-                                <div class="key-item">
-                                    <strong>Dell, HP, Lenovo</strong><br>
-                                    <kbd>F12</kbd>
-                                </div>
-                                <div class="key-item">
-                                    <strong>Asus, Acer</strong><br>
-                                    <kbd>F8</kbd> or <kbd>F12</kbd>
-                                </div>
-                                <div class="key-item">
-                                    <strong>MSI</strong><br>
-                                    <kbd>F11</kbd>
-                                </div>
-                                <div class="key-item">
-                                    <strong>Apple Mac</strong><br>
-                                    <kbd>Option</kbd>
-                                </div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step2.insert">Insert USB Drive</h4>
+                                <p class="text-gray-600" data-i18n="assistant.step2.insertDesc">At least 4GB. All data will be erased!</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step2.launch">Launch Rufus</h4>
+                                <img src="images/rufus-main.png" alt="Rufus main window" class="max-w-full h-auto rounded-lg shadow-md my-4">
+                                <ul class="space-y-2 text-gray-600">
+                                    <li data-i18n="assistant.step2.selectDevice">• Select your USB device</li>
+                                    <li data-i18n="assistant.step2.selectISO">• Click SELECT and choose your Debian ISO</li>
+                                    <li data-i18n="assistant.step2.clickStart">• Click START</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">4</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step2.ddMode">Choose DD Image Mode</h4>
+                                <img src="images/rufus-dd-mode.png" alt="Rufus DD mode selection" class="max-w-full h-auto rounded-lg shadow-md my-4">
+                                <p class="text-gray-600" data-i18n="assistant.step2.ddModeDesc">When asked, select "Write in DD Image mode" for Debian</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">5</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step2.wait">Wait for completion</h4>
+                                <p class="text-gray-600" data-i18n="assistant.step2.waitDesc">It may take 5-15 minutes depending on your USB speed</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step3.selectUSB">Select USB Drive</h4>
-                            <p data-i18n="assistant.step3.selectUSBDesc">Choose your USB drive from the boot menu (might be labeled as "USB-HDD", "UEFI", or by brand name)</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h4 data-i18n="assistant.step3.enjoy">🎉 Enjoy Debian!</h4>
-                            <p data-i18n="assistant.step3.enjoyDesc">Debian should now boot. You can try it live or proceed with installation.</p>
-                        </div>
+                    <div class="flex gap-4">
+                        <button class="step-prev flex-1 border-2 border-debian-red text-debian-red px-6 py-4 rounded-lg font-semibold text-lg hover:bg-debian-red hover:text-white transition-colors" data-i18n="assistant.previous">← Previous</button>
+                        <button class="step-next flex-1 bg-gray-800 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-gray-700 transition-colors" data-i18n="assistant.next">Next Step →</button>
                     </div>
                 </div>
 
-                <div class="assistant-nav">
-                    <button class="btn btn-outline step-prev" data-i18n="assistant.previous">← Previous</button>
-                    <button class="btn btn-primary" id="finishBtn" data-i18n="assistant.finish">Finish</button>
+                <div class="assistant-step hidden" data-step="3">
+                    <h2 class="text-3xl md:text-4xl font-bold text-debian-red mb-4" data-i18n="assistant.step3.title">Step 3: Boot from USB</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-i18n="assistant.step3.description">Now you need to tell your computer to start from the USB drive instead of your hard disk.</p>
+
+                    <div class="space-y-8 mb-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step3.restart">Restart your computer</h4>
+                                <p class="text-gray-600" data-i18n="assistant.step3.restartDesc">Keep the USB drive plugged in</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step3.bootKey">Press the boot menu key</h4>
+                                <p class="text-gray-600 mb-4" data-i18n="assistant.step3.bootKeyDesc">Press repeatedly during startup:</p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                                        <strong class="block mb-2">Dell, HP, Lenovo</strong>
+                                        <kbd class="inline-block px-3 py-2 bg-gray-800 text-white rounded font-mono text-lg">F12</kbd>
+                                    </div>
+                                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                                        <strong class="block mb-2">Asus, Acer</strong>
+                                        <kbd class="inline-block px-3 py-2 bg-gray-800 text-white rounded font-mono text-lg">F8</kbd>
+                                    </div>
+                                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                                        <strong class="block mb-2">MSI</strong>
+                                        <kbd class="inline-block px-3 py-2 bg-gray-800 text-white rounded font-mono text-lg">F11</kbd>
+                                    </div>
+                                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                                        <strong class="block mb-2">Apple Mac</strong>
+                                        <kbd class="inline-block px-3 py-2 bg-gray-800 text-white rounded font-mono text-lg">⌥</kbd>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step3.selectUSB">Select USB Drive</h4>
+                                <p class="text-gray-600" data-i18n="assistant.step3.selectUSBDesc">Choose your USB drive from the boot menu (might be labeled as "USB-HDD", "UEFI", or by brand name)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-debian-red text-white rounded-full flex items-center justify-center text-xl font-bold">4</div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="assistant.step3.enjoy">🎉 Enjoy Debian!</h4>
+                                <p class="text-gray-600" data-i18n="assistant.step3.enjoyDesc">Debian should now boot. You can try it live or proceed with installation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button class="step-prev flex-1 border-2 border-debian-red text-debian-red px-6 py-4 rounded-lg font-semibold text-lg hover:bg-debian-red hover:text-white transition-colors" data-i18n="assistant.previous">← Previous</button>
+                        <button id="finishBtn" class="flex-1 bg-debian-red text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-debian-dark transition-colors" data-i18n="assistant.finish">Finish</button>
+                    </div>
                 </div>
             </div>
         </div>
