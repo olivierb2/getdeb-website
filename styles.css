@@ -65,6 +65,47 @@ body {
     letter-spacing: -0.5px;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.arch-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.arch-selector label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.arch-select-dropdown {
+    padding: 8px 12px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 180px;
+}
+
+.arch-select-dropdown:hover {
+    border-color: var(--primary);
+}
+
+.arch-select-dropdown:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(215, 10, 83, 0.1);
+}
+
 .lang-switcher {
     display: flex;
     gap: 8px;
@@ -632,6 +673,22 @@ body {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+    .header-controls {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-end;
+    }
+
+    .arch-selector {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .arch-select-dropdown {
+        min-width: auto;
+        flex: 1;
+    }
+
     .hero-title {
         font-size: 2rem;
     }

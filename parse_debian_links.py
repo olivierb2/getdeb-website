@@ -181,7 +181,11 @@ def main():
         "live": {},
         "netboot": {
             "amd64": "https://ftp.debian.org/debian/dists/stable/main/installer-amd64/current/images/netboot/",
-            "arm64": "https://ftp.debian.org/debian/dists/stable/main/installer-arm64/current/images/netboot/"
+            "arm64": "https://ftp.debian.org/debian/dists/stable/main/installer-arm64/current/images/netboot/",
+            "armhf": "https://ftp.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/",
+            "ppc64el": "https://ftp.debian.org/debian/dists/stable/main/installer-ppc64el/current/images/netboot/",
+            "riscv64": "https://ftp.debian.org/debian/dists/stable/main/installer-riscv64/current/images/netboot/",
+            "s390x": "https://ftp.debian.org/debian/dists/stable/main/installer-s390x/current/images/netboot/"
         },
         "daily": {
             "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
@@ -191,8 +195,9 @@ def main():
     }
 
     # Parse Netinstall (firmware included by default)
+    # Official Debian 13 architectures: amd64, arm64, armhf, ppc64el, riscv64, s390x
     print("\n📀 Parsing Netinstall ISOs (with firmware)...")
-    for arch in ['amd64', 'arm64']:
+    for arch in ['amd64', 'arm64', 'armhf', 'ppc64el', 'riscv64', 's390x']:
         print(f"  - {arch}")
         data['netinstall'][arch] = parse_netinstall_links(STABLE_BASE, arch)
 

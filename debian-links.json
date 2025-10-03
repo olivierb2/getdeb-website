@@ -2,7 +2,7 @@
   "metadata": {
     "version": "13.1.0",
     "testingCodename": "Edu",
-    "lastUpdated": "2025-10-03T13:28:11.885878+00:00",
+    "lastUpdated": "2025-10-03T14:42:04.101950+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -16,6 +16,26 @@
       "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.1.0-arm64-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
       "filename": "debian-13.1.0-arm64-netinst.iso"
+    },
+    "armhf": {
+      "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/debian-13.1.0-armhf-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/SHA256SUMS",
+      "filename": "debian-13.1.0-armhf-netinst.iso"
+    },
+    "ppc64el": {
+      "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/debian-13.1.0-ppc64el-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/SHA256SUMS",
+      "filename": "debian-13.1.0-ppc64el-netinst.iso"
+    },
+    "riscv64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/debian-13.1.0-riscv64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.1.0-riscv64-netinst.iso"
+    },
+    "s390x": {
+      "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/debian-13.1.0-s390x-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/SHA256SUMS",
+      "filename": "debian-13.1.0-s390x-netinst.iso"
     }
   },
   "live": {
@@ -46,7 +66,11 @@
   },
   "netboot": {
     "amd64": "https://ftp.debian.org/debian/dists/stable/main/installer-amd64/current/images/netboot/",
-    "arm64": "https://ftp.debian.org/debian/dists/stable/main/installer-arm64/current/images/netboot/"
+    "arm64": "https://ftp.debian.org/debian/dists/stable/main/installer-arm64/current/images/netboot/",
+    "armhf": "https://ftp.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/",
+    "ppc64el": "https://ftp.debian.org/debian/dists/stable/main/installer-ppc64el/current/images/netboot/",
+    "riscv64": "https://ftp.debian.org/debian/dists/stable/main/installer-riscv64/current/images/netboot/",
+    "s390x": "https://ftp.debian.org/debian/dists/stable/main/installer-s390x/current/images/netboot/"
   },
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",

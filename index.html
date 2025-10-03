@@ -15,9 +15,22 @@
         <div class="container">
             <div class="header-content">
                 <h1 class="logo">deb-dl.org</h1>
-                <div class="lang-switcher">
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="fr">FR</button>
+                <div class="header-controls">
+                    <div class="arch-selector">
+                        <label for="arch-select" data-i18n="header.architecture">Architecture:</label>
+                        <select id="arch-select" class="arch-select-dropdown">
+                            <option value="amd64" data-i18n="arch.amd64">AMD64 (64-bit PC)</option>
+                            <option value="arm64" data-i18n="arch.arm64">ARM64</option>
+                            <option value="armhf" data-i18n="arch.armhf">ARMHF</option>
+                            <option value="ppc64el" data-i18n="arch.ppc64el">PPC64EL</option>
+                            <option value="riscv64" data-i18n="arch.riscv64">RISC-V 64</option>
+                            <option value="s390x" data-i18n="arch.s390x">S390X</option>
+                        </select>
+                    </div>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="fr">FR</button>
+                    </div>
                 </div>
             </div>
         </div>

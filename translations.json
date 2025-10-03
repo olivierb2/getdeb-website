@@ -5,6 +5,17 @@
         "title": "deb-dl.org - Easy Debian Downloads",
         "description": "The easiest way to download Debian ISOs - Netinstall, Live, Non-free firmware editions"
       },
+      "header": {
+        "architecture": "Architecture:"
+      },
+      "arch": {
+        "amd64": "AMD64 (64-bit PC)",
+        "arm64": "ARM64",
+        "armhf": "ARMHF",
+        "ppc64el": "PPC64EL",
+        "riscv64": "RISC-V 64",
+        "s390x": "S390X"
+      },
       "hero": {
         "title": "Download Debian the Easy Way",
         "subtitle": "No more confusion. Get your Debian ISO in seconds.",
@@ -117,6 +128,17 @@
       "meta": {
         "title": "deb-dl.org - Téléchargements Debian Faciles",
         "description": "La façon la plus simple de télécharger des ISOs Debian - Netinstall, Live, éditions avec firmware non-libre"
+      },
+      "header": {
+        "architecture": "Architecture :"
+      },
+      "arch": {
+        "amd64": "AMD64 (PC 64 bits)",
+        "arm64": "ARM64",
+        "armhf": "ARMHF",
+        "ppc64el": "PPC64EL",
+        "riscv64": "RISC-V 64",
+        "s390x": "S390X"
       },
       "hero": {
         "title": "Téléchargez Debian Facilement",

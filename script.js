@@ -1,5 +1,6 @@
 // ===== Global state =====
 let debianLinks = null;
+let currentArch = 'amd64'; // Default architecture
 
 // ===== i18next Initialization =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -14,6 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error loading debian-links.json:', error);
         });
+
+    // Architecture selector
+    const archSelect = document.getElementById('arch-select');
+    if (archSelect) {
+        archSelect.addEventListener('change', function() {
+            currentArch = this.value;
+            populateDownloadLinks();
+        });
+    }
 
     // Initialize i18next
     i18next
@@ -228,88 +238,93 @@ function populateDownloadLinks() {
 
     // Populate Netinstall
     const netinstallGrid = document.getElementById('netinstall-grid');
-    if (netinstallGrid) {
+    if (netinstallGrid && debianLinks.netinstall[currentArch]) {
         netinstallGrid.innerHTML = '';
-        const archDescriptions = {
-            amd64: { title: 'AMD64', desc: 'netinstall.amd64Desc', i18nDesc: 'For 64-bit PCs (Intel/AMD)' },
-            arm64: { title: 'ARM64', desc: 'netinstall.arm64Desc', i18nDesc: 'For ARM 64-bit devices' }
-        };
+        const link = debianLinks.netinstall[currentArch];
 
-        for (const [arch, link] of Object.entries(debianLinks.netinstall)) {
-            if (!link) continue;
-            const desc = archDescriptions[arch];
+        if (link) {
             const card = document.createElement('div');
             card.className = 'download-card';
             card.innerHTML = `
-                <h3>${desc.title}</h3>
-                <p class="card-arch" data-i18n="${desc.desc}">${desc.i18nDesc}</p>
+                <h3>Netinstall ${currentArch.toUpperCase()}</h3>
+                <p class="card-arch">Minimal installation image</p>
                 <p class="card-size">~350 MB</p>
                 <a href="${link.url}" class="btn btn-secondary">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
                 <a href="${link.checksum}" class="link-checksum" data-i18n="common.checksum">Checksum</a>
             `;
             netinstallGrid.appendChild(card);
+        } else {
+            netinstallGrid.innerHTML = '<p style="text-align:center;color:#6c757d;">No netinstall image available for this architecture.</p>';
         }
     }
 
-    // Populate Live ISOs
+    // Populate Live ISOs (only available for amd64)
     const liveGrid = document.getElementById('live-grid');
     if (liveGrid) {
         liveGrid.innerHTML = '';
-        const desktopInfo = {
-            gnome: { title: 'GNOME', desc: 'live.gnomeDesc', i18nDesc: 'Modern desktop environment', featured: true },
-            kde: { title: 'KDE', desc: 'live.kdeDesc', i18nDesc: 'Feature-rich desktop' },
-            xfce: { title: 'Xfce', desc: 'live.xfceDesc', i18nDesc: 'Lightweight & fast' },
-            lxde: { title: 'LXDE', desc: 'live.lxdeDesc', i18nDesc: 'Ultra-lightweight desktop' },
-            mate: { title: 'MATE', desc: 'live.mateDesc', i18nDesc: 'Traditional desktop' },
-            cinnamon: { title: 'Cinnamon', desc: 'live.cinnamonDesc', i18nDesc: 'Modern & elegant' }
-        };
 
-        for (const [desktop, link] of Object.entries(debianLinks.live)) {
-            if (!link) continue;
-            const info = desktopInfo[desktop];
-            if (!info) continue;
-
-            const card = document.createElement('div');
-            card.className = info.featured ? 'download-card featured' : 'download-card';
-
-            let badgeHtml = '';
-            if (info.featured) {
-                badgeHtml = '<div class="badge" data-i18n="common.recommended">Recommended for beginners</div>';
-            }
-
-            card.innerHTML = `
-                ${badgeHtml}
-                <h3>${info.title} (Live)</h3>
-                <p class="card-arch" data-i18n="${info.desc}">${info.i18nDesc}</p>
-                <p class="card-size">~2.5-3.5 GB</p>
-                <a href="${link.url}" class="btn ${info.featured ? 'btn-primary' : 'btn-secondary'}">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
+        // Live ISOs are only available for amd64
+        if (currentArch !== 'amd64') {
+            const archName = currentArch.toUpperCase();
+            liveGrid.innerHTML = `
+                <div class="download-card" style="grid-column: 1 / -1;">
+                    <h3>Live Images Not Available</h3>
+                    <p class="card-arch" style="margin-bottom: 0;">
+                        Live images are only available for AMD64 architecture.<br>
+                        For <strong>${archName}</strong>, please use the Netinstall image above.
+                    </p>
+                </div>
             `;
-            liveGrid.appendChild(card);
+        } else {
+            const desktopInfo = {
+                gnome: { title: 'GNOME', desc: 'live.gnomeDesc', i18nDesc: 'Modern desktop environment', featured: true },
+                kde: { title: 'KDE', desc: 'live.kdeDesc', i18nDesc: 'Feature-rich desktop' },
+                xfce: { title: 'Xfce', desc: 'live.xfceDesc', i18nDesc: 'Lightweight & fast' },
+                lxde: { title: 'LXDE', desc: 'live.lxdeDesc', i18nDesc: 'Ultra-lightweight desktop' },
+                mate: { title: 'MATE', desc: 'live.mateDesc', i18nDesc: 'Traditional desktop' },
+                cinnamon: { title: 'Cinnamon', desc: 'live.cinnamonDesc', i18nDesc: 'Modern & elegant' }
+            };
+
+            for (const [desktop, link] of Object.entries(debianLinks.live)) {
+                if (!link) continue;
+                const info = desktopInfo[desktop];
+                if (!info) continue;
+
+                const card = document.createElement('div');
+                card.className = info.featured ? 'download-card featured' : 'download-card';
+
+                let badgeHtml = '';
+                if (info.featured) {
+                    badgeHtml = '<div class="badge" data-i18n="common.recommended">Recommended for beginners</div>';
+                }
+
+                card.innerHTML = `
+                    ${badgeHtml}
+                    <h3>${info.title} (Live)</h3>
+                    <p class="card-arch" data-i18n="${info.desc}">${info.i18nDesc}</p>
+                    <p class="card-size">~2.5-3.5 GB</p>
+                    <a href="${link.url}" class="btn ${info.featured ? 'btn-primary' : 'btn-secondary'}">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
+                `;
+                liveGrid.appendChild(card);
+            }
         }
     }
 
     // Populate Netboot
     const netbootGrid = document.getElementById('netboot-grid');
-    if (netbootGrid && debianLinks.netboot) {
+    if (netbootGrid && debianLinks.netboot[currentArch]) {
         netbootGrid.innerHTML = '';
-        const archDescriptions = {
-            amd64: { title: 'AMD64', desc: 'netboot.amd64Desc', i18nDesc: 'AMD64 netboot files' },
-            arm64: { title: 'ARM64', desc: 'netboot.arm64Desc', i18nDesc: 'ARM64 netboot files' }
-        };
+        const url = debianLinks.netboot[currentArch];
 
-        for (const [arch, url] of Object.entries(debianLinks.netboot)) {
-            const desc = archDescriptions[arch];
-            if (!desc) continue;
-            const card = document.createElement('div');
-            card.className = 'download-card';
-            card.innerHTML = `
-                <h3>${desc.title} Netboot</h3>
-                <p class="card-arch" data-i18n="${desc.desc}">${desc.i18nDesc}</p>
-                <p class="card-size">Browse for files</p>
-                <a href="${url}" class="btn btn-secondary" data-i18n="common.browse">Browse</a>
-            `;
-            netbootGrid.appendChild(card);
-        }
+        const card = document.createElement('div');
+        card.className = 'download-card';
+        card.innerHTML = `
+            <h3>Netboot ${currentArch.toUpperCase()}</h3>
+            <p class="card-arch">PXE network boot files</p>
+            <p class="card-size">Browse for files</p>
+            <a href="${url}" class="btn btn-secondary" data-i18n="common.browse">Browse</a>
+        `;
+        netbootGrid.appendChild(card);
     }
 
     // Populate Daily/Testing
@@ -359,10 +374,10 @@ function populateDownloadLinks() {
         });
     }
 
-    // Update hero download button to point to AMD64 netinstall
+    // Update hero download button to point to current arch netinstall
     const heroDownloadBtn = document.getElementById('hero-download-btn');
-    if (heroDownloadBtn && debianLinks.netinstall && debianLinks.netinstall.amd64) {
-        heroDownloadBtn.href = debianLinks.netinstall.amd64.url;
+    if (heroDownloadBtn && debianLinks.netinstall && debianLinks.netinstall[currentArch]) {
+        heroDownloadBtn.href = debianLinks.netinstall[currentArch].url;
     }
 
     // Update assistant download link
