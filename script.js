@@ -236,25 +236,21 @@ const downloadIconSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24
 function populateDownloadLinks() {
     if (!debianLinks) return;
 
-    // Populate Netinstall
-    const netinstallGrid = document.getElementById('netinstall-grid');
-    if (netinstallGrid && debianLinks.netinstall[currentArch]) {
-        netinstallGrid.innerHTML = '';
+    // Populate Hero Netinstall Card
+    const netinstallCard = document.getElementById('netinstall-card');
+    if (netinstallCard && debianLinks.netinstall[currentArch]) {
         const link = debianLinks.netinstall[currentArch];
 
         if (link) {
-            const card = document.createElement('div');
-            card.className = 'download-card';
-            card.innerHTML = `
+            netinstallCard.innerHTML = `
                 <h3>Netinstall ${currentArch.toUpperCase()}</h3>
                 <p class="card-arch">Minimal installation image</p>
                 <p class="card-size">~350 MB</p>
-                <a href="${link.url}" class="btn btn-secondary">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
+                <a href="${link.url}" class="btn btn-hero btn-large">${downloadIconSVG}<span data-i18n="common.download">Download</span></a>
                 <a href="${link.checksum}" class="link-checksum" data-i18n="common.checksum">Checksum</a>
             `;
-            netinstallGrid.appendChild(card);
         } else {
-            netinstallGrid.innerHTML = '<p style="text-align:center;color:#6c757d;">No netinstall image available for this architecture.</p>';
+            netinstallCard.innerHTML = '<p style="color:#6c757d;">No netinstall image available for this architecture.</p>';
         }
     }
 

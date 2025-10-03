@@ -36,36 +36,18 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section with Netinstall -->
+    <section id="netinstall" class="hero">
         <div class="container">
             <h2 class="hero-title" data-i18n="hero.title">Download Debian the Easy Way</h2>
-            <p class="hero-subtitle" data-i18n="hero.subtitle">No more confusion. Get your Debian ISO in seconds.</p>
+            <p class="hero-subtitle" data-i18n="netinstall.description">Minimal installation images. Downloads packages from the internet during installation.</p>
 
-            <div class="hero-cta">
-                <a href="#" id="hero-download-btn" class="btn btn-hero btn-large">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    <div>
-                        <span data-i18n="hero.cta">Download Netinstall ISO</span>
-                        <small data-i18n="hero.recommended">(Recommended for most users)</small>
-                    </div>
-                </a>
+            <div class="hero-download-card" id="netinstall-card">
+                <!-- Generated dynamically from debian-links.json -->
             </div>
 
             <div class="scroll-hint">
                 <p data-i18n="hero.scrollHint">👇 Scroll down to see all available downloads</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Netinstall Section -->
-    <section id="netinstall" class="download-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="netinstall.title">Netinstall Images</h2>
-            <p class="section-description" data-i18n="netinstall.description">Minimal installation images. Downloads packages from the internet during installation.</p>
-
-            <div class="download-grid" id="netinstall-grid">
-                <!-- Generated dynamically from debian-links.json -->
             </div>
         </div>
     </section>

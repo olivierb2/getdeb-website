@@ -159,14 +159,66 @@ body {
     font-weight: 400;
 }
 
-.hero-cta {
-    margin-bottom: 60px;
+.hero-download-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.hero-download-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.hero-download-card .card-arch {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.hero-download-card .card-size {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.hero-download-card .btn {
+    width: 100%;
+    margin-bottom: 12px;
+    background: var(--primary);
+    color: white;
+}
+
+.hero-download-card .btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.hero-download-card .link-checksum {
+    display: inline-block;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.hero-download-card .link-checksum:hover {
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 .scroll-hint {
     font-size: 1.1rem;
     opacity: 0.9;
     animation: bounce 2s infinite;
+    color: white;
 }
 
 @keyframes bounce {
