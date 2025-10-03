@@ -223,19 +223,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ===== Scroll-based Header Shadow =====
     let lastScroll = 0;
-    const header = document.querySelector('.header');
+    const header = document.querySelector('header');
 
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
+    if (header) {
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
 
-        if (currentScroll > 10) {
-            header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
-        } else {
-            header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.08)';
-        }
+            if (currentScroll > 10) {
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
+            } else {
+                header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.08)';
+            }
 
-        lastScroll = currentScroll;
-    });
+            lastScroll = currentScroll;
+        });
+    }
 
     // ===== Console Welcome Message =====
     console.log('%c🎉 Welcome to deb-dl.org!', 'color: #D70A53; font-size: 20px; font-weight: bold;');
