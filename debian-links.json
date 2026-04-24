@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.4.0",
-    "testingCodename": "Forky",
-    "lastUpdated": "2026-04-24T13:26:42.276302+00:00",
+    "testingCodename": "Edu",
+    "lastUpdated": "2026-04-24T15:01:33.160349+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -75,6 +75,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Forky"
+    "testingCodename": "Edu"
   }
 }
