@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.5.0",
-    "testingCodename": "Edu",
-    "lastUpdated": "2026-05-18T14:30:45.548387+00:00",
+    "testingCodename": "Forky",
+    "lastUpdated": "2026-05-18T17:25:59.933820+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -43,18 +43,12 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.5.0-amd64-gnome.iso",
       "filename": "debian-live-13.5.0-amd64-gnome.iso"
     },
-    "kde": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.5.0-amd64-kde.iso",
-      "filename": "debian-live-13.5.0-amd64-kde.iso"
-    },
+    "kde": null,
     "xfce": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.5.0-amd64-xfce.iso",
       "filename": "debian-live-13.5.0-amd64-xfce.iso"
     },
-    "lxde": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.5.0-amd64-lxde.iso",
-      "filename": "debian-live-13.5.0-amd64-lxde.iso"
-    },
+    "lxde": null,
     "mate": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.5.0-amd64-mate.iso",
       "filename": "debian-live-13.5.0-amd64-mate.iso"
@@ -75,6 +69,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Edu"
+    "testingCodename": "Forky"
   }
 }
