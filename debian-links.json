@@ -2,12 +2,16 @@
   "metadata": {
     "version": "13.5.0",
     "testingCodename": "Edu",
-    "lastUpdated": "2026-05-19T03:23:28.285091+00:00",
+    "lastUpdated": "2026-05-19T07:36:58.196313+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
   "netinstall": {
-    "amd64": null,
+    "amd64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.5.0-amd64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.5.0-amd64-netinst.iso"
+    },
     "arm64": {
       "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.5.0-arm64-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
@@ -28,7 +32,11 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
       "filename": "debian-13.5.0-riscv64-netinst.iso"
     },
-    "s390x": null
+    "s390x": {
+      "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/debian-13.5.0-s390x-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/SHA256SUMS",
+      "filename": "debian-13.5.0-s390x-netinst.iso"
+    }
   },
   "live": {
     "gnome": {
