@@ -2,7 +2,7 @@
   "metadata": {
     "version": "13.5.0",
     "testingCodename": "Edu",
-    "lastUpdated": "2026-06-26T13:03:53.307358+00:00",
+    "lastUpdated": "2026-06-26T16:07:50.254699+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
