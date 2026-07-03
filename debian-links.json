@@ -2,7 +2,7 @@
   "metadata": {
     "version": "13.5.0",
     "testingCodename": "Forky",
-    "lastUpdated": "2026-07-03T06:22:40.246906+00:00",
+    "lastUpdated": "2026-07-03T09:50:23.450945+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
