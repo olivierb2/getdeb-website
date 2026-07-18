@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.6.0",
-    "testingCodename": "Edu",
-    "lastUpdated": "2026-07-18T06:54:01.033571+00:00",
+    "testingCodename": "Forky",
+    "lastUpdated": "2026-07-18T08:43:53.715528+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -27,11 +27,7 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/SHA256SUMS",
       "filename": "debian-13.6.0-ppc64el-netinst.iso"
     },
-    "riscv64": {
-      "url": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/debian-13.6.0-riscv64-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-riscv64-netinst.iso"
-    },
+    "riscv64": null,
     "s390x": {
       "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/debian-13.6.0-s390x-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/SHA256SUMS",
@@ -75,6 +71,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Edu"
+    "testingCodename": "Forky"
   }
 }
