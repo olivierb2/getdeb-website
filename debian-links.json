@@ -2,7 +2,7 @@
   "metadata": {
     "version": "unknown",
     "testingCodename": "Forky",
-    "lastUpdated": "2026-08-08T17:21:44.107381+00:00",
+    "lastUpdated": "2026-08-08T18:24:37.926583+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -12,7 +12,11 @@
     "armhf": null,
     "ppc64el": null,
     "riscv64": null,
-    "s390x": null
+    "s390x": {
+      "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/debian-13.6.0-s390x-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-s390x-netinst.iso"
+    }
   },
   "live": {
     "gnome": {
@@ -22,10 +26,7 @@
     "kde": null,
     "xfce": null,
     "lxde": null,
-    "mate": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
-      "filename": "debian-live-13.6.0-amd64-mate.iso"
-    },
+    "mate": null,
     "cinnamon": null
   },
   "netboot": {
