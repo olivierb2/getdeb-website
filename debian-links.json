@@ -1,41 +1,34 @@
 {
   "metadata": {
-    "version": "13.6.0",
+    "version": "unknown",
     "testingCodename": "Forky",
-    "lastUpdated": "2026-08-08T14:23:13.985714+00:00",
+    "lastUpdated": "2026-08-08T15:21:09.903260+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
   "netinstall": {
-    "amd64": {
-      "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-amd64-netinst.iso"
+    "amd64": null,
+    "arm64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.6.0-arm64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-arm64-netinst.iso"
     },
-    "arm64": null,
     "armhf": null,
     "ppc64el": null,
-    "riscv64": {
-      "url": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/debian-13.6.0-riscv64-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-riscv64-netinst.iso"
-    },
+    "riscv64": null,
     "s390x": null
   },
   "live": {
-    "gnome": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-gnome.iso",
-      "filename": "debian-live-13.6.0-amd64-gnome.iso"
-    },
+    "gnome": null,
     "kde": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
       "filename": "debian-live-13.6.0-amd64-kde.iso"
     },
-    "xfce": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
-      "filename": "debian-live-13.6.0-amd64-xfce.iso"
+    "xfce": null,
+    "lxde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
+      "filename": "debian-live-13.6.0-amd64-lxde.iso"
     },
-    "lxde": null,
     "mate": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
       "filename": "debian-live-13.6.0-amd64-mate.iso"
