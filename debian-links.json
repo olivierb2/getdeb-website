@@ -1,14 +1,18 @@
 {
   "metadata": {
     "version": "13.6.0",
-    "testingCodename": "Edu",
-    "lastUpdated": "2026-08-08T06:35:53.093961+00:00",
+    "testingCodename": "Forky",
+    "lastUpdated": "2026-08-08T07:40:50.262316+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
   "netinstall": {
     "amd64": null,
-    "arm64": null,
+    "arm64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.6.0-arm64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-arm64-netinst.iso"
+    },
     "armhf": null,
     "ppc64el": null,
     "riscv64": null,
@@ -16,23 +20,11 @@
   },
   "live": {
     "gnome": null,
-    "kde": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
-      "filename": "debian-live-13.6.0-amd64-kde.iso"
-    },
-    "xfce": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
-      "filename": "debian-live-13.6.0-amd64-xfce.iso"
-    },
+    "kde": null,
+    "xfce": null,
     "lxde": null,
-    "mate": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
-      "filename": "debian-live-13.6.0-amd64-mate.iso"
-    },
-    "cinnamon": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-cinnamon.iso",
-      "filename": "debian-live-13.6.0-amd64-cinnamon.iso"
-    }
+    "mate": null,
+    "cinnamon": null
   },
   "netboot": {
     "amd64": "https://ftp.debian.org/debian/dists/stable/main/installer-amd64/current/images/netboot/",
@@ -45,6 +37,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Edu"
+    "testingCodename": "Forky"
   }
 }
