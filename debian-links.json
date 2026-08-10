@@ -1,15 +1,27 @@
 {
   "metadata": {
-    "version": "unknown",
+    "version": "13.6.0",
     "testingCodename": "Forky",
-    "lastUpdated": "2026-08-10T09:08:43.456839+00:00",
+    "lastUpdated": "2026-08-10T10:59:03.471834+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
   "netinstall": {
-    "amd64": null,
-    "arm64": null,
-    "armhf": null,
+    "amd64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-amd64-netinst.iso"
+    },
+    "arm64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.6.0-arm64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-arm64-netinst.iso"
+    },
+    "armhf": {
+      "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/debian-13.6.0-armhf-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-armhf-netinst.iso"
+    },
     "ppc64el": null,
     "riscv64": {
       "url": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/debian-13.6.0-riscv64-netinst.iso",
@@ -23,13 +35,22 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-gnome.iso",
       "filename": "debian-live-13.6.0-amd64-gnome.iso"
     },
-    "kde": null,
-    "xfce": null,
+    "kde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
+      "filename": "debian-live-13.6.0-amd64-kde.iso"
+    },
+    "xfce": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
+      "filename": "debian-live-13.6.0-amd64-xfce.iso"
+    },
     "lxde": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
       "filename": "debian-live-13.6.0-amd64-lxde.iso"
     },
-    "mate": null,
+    "mate": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
+      "filename": "debian-live-13.6.0-amd64-mate.iso"
+    },
     "cinnamon": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-cinnamon.iso",
       "filename": "debian-live-13.6.0-amd64-cinnamon.iso"
