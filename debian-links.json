@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.6.0",
-    "testingCodename": "Forky",
-    "lastUpdated": "2026-08-12T15:51:20.096903+00:00",
+    "testingCodename": "Edu",
+    "lastUpdated": "2026-08-12T16:47:15.651694+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -17,16 +17,8 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
       "filename": "debian-13.6.0-arm64-netinst.iso"
     },
-    "armhf": {
-      "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/debian-13.6.0-armhf-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-armhf-netinst.iso"
-    },
-    "ppc64el": {
-      "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/debian-13.6.0-ppc64el-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-ppc64el-netinst.iso"
-    },
+    "armhf": null,
+    "ppc64el": null,
     "riscv64": {
       "url": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/debian-13.6.0-riscv64-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
@@ -40,7 +32,10 @@
   },
   "live": {
     "gnome": null,
-    "kde": null,
+    "kde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
+      "filename": "debian-live-13.6.0-amd64-kde.iso"
+    },
     "xfce": null,
     "lxde": null,
     "mate": null,
@@ -57,6 +52,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Forky"
+    "testingCodename": "Edu"
   }
 }
