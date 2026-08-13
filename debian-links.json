@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.6.0",
-    "testingCodename": "Edu",
-    "lastUpdated": "2026-08-13T15:50:50.637301+00:00",
+    "testingCodename": "Forky",
+    "lastUpdated": "2026-08-13T16:45:55.287796+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -17,7 +17,11 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
       "filename": "debian-13.6.0-arm64-netinst.iso"
     },
-    "armhf": null,
+    "armhf": {
+      "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/debian-13.6.0-armhf-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-armhf-netinst.iso"
+    },
     "ppc64el": {
       "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/debian-13.6.0-ppc64el-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/SHA256SUMS",
@@ -28,7 +32,11 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
       "filename": "debian-13.6.0-riscv64-netinst.iso"
     },
-    "s390x": null
+    "s390x": {
+      "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/debian-13.6.0-s390x-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-s390x-netinst.iso"
+    }
   },
   "live": {
     "gnome": {
@@ -39,11 +47,11 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
       "filename": "debian-live-13.6.0-amd64-kde.iso"
     },
-    "xfce": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
-      "filename": "debian-live-13.6.0-amd64-xfce.iso"
+    "xfce": null,
+    "lxde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
+      "filename": "debian-live-13.6.0-amd64-lxde.iso"
     },
-    "lxde": null,
     "mate": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
       "filename": "debian-live-13.6.0-amd64-mate.iso"
@@ -64,6 +72,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Edu"
+    "testingCodename": "Forky"
   }
 }
