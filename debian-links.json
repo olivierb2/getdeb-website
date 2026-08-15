@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.6.0",
-    "testingCodename": "Forky",
-    "lastUpdated": "2026-08-15T14:13:16.534944+00:00",
+    "testingCodename": "Edu",
+    "lastUpdated": "2026-08-15T15:11:12.605784+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -32,18 +32,14 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/riscv64/iso-cd/SHA256SUMS",
       "filename": "debian-13.6.0-riscv64-netinst.iso"
     },
-    "s390x": {
-      "url": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/debian-13.6.0-s390x-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/s390x/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-s390x-netinst.iso"
-    }
+    "s390x": null
   },
   "live": {
-    "gnome": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-gnome.iso",
-      "filename": "debian-live-13.6.0-amd64-gnome.iso"
+    "gnome": null,
+    "kde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
+      "filename": "debian-live-13.6.0-amd64-kde.iso"
     },
-    "kde": null,
     "xfce": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
       "filename": "debian-live-13.6.0-amd64-xfce.iso"
@@ -52,7 +48,10 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
       "filename": "debian-live-13.6.0-amd64-lxde.iso"
     },
-    "mate": null,
+    "mate": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
+      "filename": "debian-live-13.6.0-amd64-mate.iso"
+    },
     "cinnamon": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-cinnamon.iso",
       "filename": "debian-live-13.6.0-amd64-cinnamon.iso"
@@ -69,6 +68,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Forky"
+    "testingCodename": "Edu"
   }
 }
