@@ -2,7 +2,7 @@
   "metadata": {
     "version": "13.6.0",
     "testingCodename": "Edu",
-    "lastUpdated": "2026-08-15T12:19:35.901255+00:00",
+    "lastUpdated": "2026-08-15T13:23:06.260857+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -39,7 +39,10 @@
     }
   },
   "live": {
-    "gnome": null,
+    "gnome": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-gnome.iso",
+      "filename": "debian-live-13.6.0-amd64-gnome.iso"
+    },
     "kde": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
       "filename": "debian-live-13.6.0-amd64-kde.iso"
