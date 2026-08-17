@@ -2,12 +2,16 @@
   "metadata": {
     "version": "13.6.0",
     "testingCodename": "Edu",
-    "lastUpdated": "2026-08-17T15:16:47.288756+00:00",
+    "lastUpdated": "2026-08-17T16:16:41.499953+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
   "netinstall": {
-    "amd64": null,
+    "amd64": {
+      "url": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-13.6.0-amd64-netinst.iso",
+      "checksum": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS",
+      "filename": "debian-13.6.0-amd64-netinst.iso"
+    },
     "arm64": {
       "url": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-13.6.0-arm64-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
@@ -43,11 +47,11 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
       "filename": "debian-live-13.6.0-amd64-kde.iso"
     },
-    "xfce": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
-      "filename": "debian-live-13.6.0-amd64-xfce.iso"
+    "xfce": null,
+    "lxde": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-lxde.iso",
+      "filename": "debian-live-13.6.0-amd64-lxde.iso"
     },
-    "lxde": null,
     "mate": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
       "filename": "debian-live-13.6.0-amd64-mate.iso"
