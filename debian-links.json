@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.6.0",
-    "testingCodename": "Edu",
-    "lastUpdated": "2026-08-18T13:35:05.972028+00:00",
+    "testingCodename": "Forky",
+    "lastUpdated": "2026-08-18T14:23:43.801739+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -17,11 +17,7 @@
       "checksum": "https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/SHA256SUMS",
       "filename": "debian-13.6.0-arm64-netinst.iso"
     },
-    "armhf": {
-      "url": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/debian-13.6.0-armhf-netinst.iso",
-      "checksum": "https://cdimage.debian.org/debian-cd/current/armhf/iso-cd/SHA256SUMS",
-      "filename": "debian-13.6.0-armhf-netinst.iso"
-    },
+    "armhf": null,
     "ppc64el": {
       "url": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/debian-13.6.0-ppc64el-netinst.iso",
       "checksum": "https://cdimage.debian.org/debian-cd/current/ppc64el/iso-cd/SHA256SUMS",
@@ -43,10 +39,7 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-gnome.iso",
       "filename": "debian-live-13.6.0-amd64-gnome.iso"
     },
-    "kde": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-kde.iso",
-      "filename": "debian-live-13.6.0-amd64-kde.iso"
-    },
+    "kde": null,
     "xfce": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso",
       "filename": "debian-live-13.6.0-amd64-xfce.iso"
@@ -59,10 +52,7 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-mate.iso",
       "filename": "debian-live-13.6.0-amd64-mate.iso"
     },
-    "cinnamon": {
-      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-cinnamon.iso",
-      "filename": "debian-live-13.6.0-amd64-cinnamon.iso"
-    }
+    "cinnamon": null
   },
   "netboot": {
     "amd64": "https://ftp.debian.org/debian/dists/stable/main/installer-amd64/current/images/netboot/",
@@ -75,6 +65,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Edu"
+    "testingCodename": "Forky"
   }
 }
