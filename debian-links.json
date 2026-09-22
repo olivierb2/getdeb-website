@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "13.7.0",
-    "testingCodename": "Forky",
-    "lastUpdated": "2026-09-22T10:38:35.976248+00:00",
+    "testingCodename": "Edu",
+    "lastUpdated": "2026-09-22T15:16:53.127168+00:00",
     "generator": "parse_debian_links.py",
     "notice": "Since Debian 12, firmware is included by default in standard ISOs"
   },
@@ -47,7 +47,10 @@
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.7.0-amd64-kde.iso",
       "filename": "debian-live-13.7.0-amd64-kde.iso"
     },
-    "xfce": null,
+    "xfce": {
+      "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.7.0-amd64-xfce.iso",
+      "filename": "debian-live-13.7.0-amd64-xfce.iso"
+    },
     "lxde": {
       "url": "https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-13.7.0-amd64-lxde.iso",
       "filename": "debian-live-13.7.0-amd64-lxde.iso"
@@ -72,6 +75,6 @@
   "daily": {
     "testing": "https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/",
     "daily": "https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/",
-    "testingCodename": "Forky"
+    "testingCodename": "Edu"
   }
 }
